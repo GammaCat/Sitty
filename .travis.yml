@@ -1,16 +1,15 @@
 # http://lint.travis-ci.org
 language: python
-
 python:
-	- "3.5"
-	- "3.6
-	
-install: "
-	-pip install -r requirements.txt
+    - 3.5
+    - 3.6
 
-script: 
-	- pylint Sitty
-	
+install:
+    - pip install -r requirements.txt
+
+script:
+    - pylint Sitty
+
 sudo: false
 
 matrix:
