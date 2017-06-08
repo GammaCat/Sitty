@@ -17,3 +17,5 @@ class Task(models.Model):
     estimate = models.DateField(auto_now=True)
     state = models.CharField(max_length=1, choices=TASK_STATES_CHOICES)
 
+    def ready(self):
+        self.state = TASK_STATES.ready
