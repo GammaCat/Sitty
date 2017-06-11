@@ -10,6 +10,13 @@ class TASK_STATES:
 # Create your models here.
 
 
+class RoadMap(models.Model):
+    title = models.CharField(max_length=200)
+
+    def today_tasks(self):
+        return Task.objects.filter(estimate=dt.today())
+
+
 class Task(models.Model):
     TASK_STATES_CHOICES = (
         (TASK_STATES.in_progress, 'in progress'),
@@ -18,6 +25,7 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     estimate = models.DateField()
     state = models.CharField(max_length=1, choices=TASK_STATES_CHOICES)
+    roadmap = models.ForeignKey(RoadMap, null=True)
 
     def ready(self):
         self.state = TASK_STATES.ready
