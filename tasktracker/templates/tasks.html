@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table title="Tasks">
+        <tr bgcolor="808080">
+            <td>Title</td>
+            <td>Estimate</td>
+            <td>State</td>
+            <td>Roadmap</td>
+            <td>Is failed</td>
+            <td>Remaining</td>
+        </tr>
+        {% if task_list %}
+            {% for task in task_list %}
+                <tr>
+                    <td>{{task.title}}</td>
+                    <td>{{task.estimate}}</td>
+                    <td>{{task.state}}</td>
+                    <td>{{task.roadmap}}</td>
+                    <td>{{task.is_failed}}</td>
+                    <td>{{task.remaining}}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td>No tasks...</td>
+            </tr>
+        {% endif %}
+    </table>
+
+{% endblock %}
