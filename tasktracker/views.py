@@ -7,7 +7,7 @@ from .models import Task
 
 def tasks(request):
 
-    task_list = list(Task.objects.get())
+    task_list = list(Task.objects.all())
 
     return render(
         request,
