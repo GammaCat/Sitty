@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table title="Roadmaps">
+        <tr bgcolor="808080">
+            <td>Title</td>
+        </tr>
+        {% if roadmaps_list %}
+            {% for roadmap in roadmaps_list %}
+                <tr>
+                    <td>{{roadmap.title}}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td>No roadmaps...</td>
+            </tr>
+        {% endif %}
+    </table>
+
+{% endblock %}
